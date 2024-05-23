@@ -15,6 +15,9 @@ struct BilliardsExample : public CommonRigidBodyBase {
 	btRigidBody* bodies[1024];
 	std::string names[1024];
 
+    // modify y-axis velocity
+    btVector3 velocity{0, 5, 0};
+
 	JsonGenerator* jsonGenerator;
 
 	int sphereCount;
@@ -25,7 +28,7 @@ struct BilliardsExample : public CommonRigidBodyBase {
 
 	BilliardsExample(struct GUIHelperInterface* helper) : CommonRigidBodyBase(helper) {
 		fileGenerator = new FileGenerator("Billiards");
-		jsonGenerator = new JsonGenerator("Billiards");
+		jsonGenerator = new JsonGenerator("Scene");
 	}
 	virtual ~BilliardsExample() {
 		delete fileGenerator;
@@ -99,6 +102,8 @@ void BilliardsExample::initPhysics()
 
 	bodies[0] = createRigidBody(mass, sphereTransform, sphereShape);
 	names[0] = "init_velocity_sphere";
+
+    bodies[0]->setLinearVelocity(velocity);
 
 	btScalar yOffset = sqrtf(3.0f);
 	btVector3 xOffset(-2, 0, 0);

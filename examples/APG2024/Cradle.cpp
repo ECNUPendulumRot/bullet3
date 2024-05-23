@@ -14,6 +14,9 @@ struct CradleExample : public CommonRigidBodyBase {
 	btRigidBody* bodies[1024];
 	std::string names[1024];
 
+    // modify y-axis velocity
+    btVector3 velocity{0, 5, 0};
+
 	int sphereCount = 8;
 
 	FileGenerator* fileGenerator;
@@ -22,7 +25,7 @@ struct CradleExample : public CommonRigidBodyBase {
 
 	CradleExample(struct GUIHelperInterface* helper) : CommonRigidBodyBase(helper) {
 		fileGenerator = new FileGenerator("Cradle");
-		jsonGenerator = new JsonGenerator("scene");
+		jsonGenerator = new JsonGenerator("Cradle");
 	}
 
 	virtual ~CradleExample() {
@@ -99,6 +102,8 @@ void CradleExample::initPhysics()
 	bodies[0] = createRigidBody(mass, sphereTransform, sphereShape);
     bodies[0]->setLinearVelocity(btVector3(0, 5, 0));
 	names[0] = "init_velocity_sphere";
+
+    bodies[0]->setLinearVelocity(velocity);
 
 	for (int i = 1; i <= sphereCount; i++) {
 		sphereTransform.setOrigin(btVector3(0, 1 + 2 * i, 1));

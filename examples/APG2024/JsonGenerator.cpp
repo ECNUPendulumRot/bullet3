@@ -3,6 +3,7 @@
 #include <fstream>
 #include <filesystem>
 #include <iostream>
+#include <string>
 
 #include "BulletCollision/CollisionShapes/btCollisionShape.h"
 #include "BulletCollision/CollisionShapes/btSphereShape.h"
@@ -24,7 +25,7 @@ void JsonGenerator::addObjects(btRigidBody** bodies, std::string* names, int bod
 		{
 			case BroadphaseNativeTypes::SPHERE_SHAPE_PROXYTYPE:
 				objJson["type"] = "sphere";
-				objJson["radius"] = dynamic_cast<btSphereShape*>(shape)->getRadius();
+				objJson["radius"] = ((btSphereShape*)shape)->getRadius();
 				break;
 			default:
 				break;
@@ -86,9 +87,10 @@ void JsonGenerator::saveToFile()
 {
 	createDirectory();
 
-	int fileCount = getFileCount();
+	// int fileCount = getFileCount();
 
-	std::filesystem::path fileName = dir / (jsonFileNamePrefix + ".json");
+	// std::filesystem::path fileName = dir / (jsonFileNamePrefix + "_" + std::to_string(fileCount) + ".json");
+    std::filesystem::path fileName = dir / (jsonFileNamePrefix + ".json");
 
 	std::ofstream file(fileName);
 

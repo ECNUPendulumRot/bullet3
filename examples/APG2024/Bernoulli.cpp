@@ -15,6 +15,9 @@ struct BernoulliExample : public CommonRigidBodyBase {
 	btRigidBody* bodies[1024];
 	std::string names[1024];
 
+    // modify y-axis velocity
+    btVector3 velocity{0, 5, 0};
+
 	int sphereCount = 4;
 
 	FileGenerator* fileGenerator;
@@ -22,7 +25,7 @@ struct BernoulliExample : public CommonRigidBodyBase {
 
 	BernoulliExample(struct GUIHelperInterface* helper) : CommonRigidBodyBase(helper) {
 		fileGenerator = new FileGenerator("Bernoulli");
-		jsonGenerator = new JsonGenerator("Bernoulli");
+		jsonGenerator = new JsonGenerator("Scene");
 	}
 	virtual ~BernoulliExample() {
 		delete fileGenerator;
@@ -97,6 +100,8 @@ void BernoulliExample::initPhysics()
 
 	bodies[0] = createRigidBody(mass, sphereTransform, sphereShape);
 	names[0] = "init_velocity_sphere";
+
+    bodies[0]->setLinearVelocity(velocity);
 
 	btVector3 p(-sphereCount + 1.0f, 3.0f, 1.0f);
 	for (int i = 1; i <= sphereCount; i++) {
