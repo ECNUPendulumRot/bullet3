@@ -438,6 +438,8 @@ SET(BulletExampleBrowser_SRCS
 	../APG2024/Billiards.cpp
 	../APG2024/Cradle.hpp
 	../APG2024/Cradle.cpp
+	../APG2024/BallGeyser.hpp
+	../APG2024/BallGeyser.cpp
 )
 
 set(CMAKE_CXX_STANDARD 17)

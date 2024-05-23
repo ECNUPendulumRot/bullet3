@@ -5,8 +5,8 @@
 #include <iostream>
 #include <string>
 
-#include "BulletCollision/CollisionShapes/btCollisionShape.h"
 #include "BulletCollision/CollisionShapes/btSphereShape.h"
+#include "BulletCollision/CollisionShapes/btBoxShape.h"
 
 std::filesystem::path JsonGenerator::dir = "JsonInfo";
 
@@ -27,6 +27,14 @@ void JsonGenerator::addObjects(btRigidBody** bodies, std::string* names, int bod
 				objJson["type"] = "sphere";
 				objJson["radius"] = ((btSphereShape*)shape)->getRadius();
 				break;
+            case BroadphaseNativeTypes::BOX_SHAPE_PROXYTYPE: {
+                objJson["type"] = "box";
+                btVector3 xyz = ((btBoxShape*)shape)->getHalfExtentsWithMargin() * 2;
+                objJson["hx"] = xyz.x();
+                objJson["hy"] = xyz.y();
+                objJson["hz"] = xyz.z();
+                break;
+            }
 			default:
 				break;
 		}

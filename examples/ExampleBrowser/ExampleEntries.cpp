@@ -88,6 +88,7 @@
 #include "../APG2024/Billiards.hpp"
 #include "../APG2024/Cradle.hpp"
 
+#include "../APG2024/BallGeyser.hpp"
 
 #ifdef B3_ENABLE_TINY_AUDIO
 #include "../TinyAudio/TinyAudioExample.h"
@@ -147,6 +148,8 @@ static ExampleEntry gDefaultExamples[] =
 		ExampleEntry(1, "Billiards", "PG2024 Billiards", BilliardsCreateFunc),
 
 		ExampleEntry(1, "Cradle", "PG2024 Cradle", CradleCreateFunc),
+
+        ExampleEntry(1, "Ball Geyser", "PG2024 Ball Geyser", BallGeyserCreateFunc),
 
 		ExampleEntry(1, "Basic Example", "Create some rigid bodies using box collision shapes. This is a good example to familiarize with the basic initialization of Bullet. The Basic Example can also be compiled without graphical user interface, as a console application. Press W for wireframe, A to show AABBs, I to suspend/restart physics simulation. Press D to toggle auto-deactivation of the simulation. ", BasicExampleCreateFunc),
 

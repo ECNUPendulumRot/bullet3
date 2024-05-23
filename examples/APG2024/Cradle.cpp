@@ -25,7 +25,7 @@ struct CradleExample : public CommonRigidBodyBase {
 
 	CradleExample(struct GUIHelperInterface* helper) : CommonRigidBodyBase(helper) {
 		fileGenerator = new FileGenerator("Cradle");
-		jsonGenerator = new JsonGenerator("Cradle");
+		jsonGenerator = new JsonGenerator("Scene");
 	}
 
 	virtual ~CradleExample() {
@@ -100,7 +100,6 @@ void CradleExample::initPhysics()
 	sphereShape->calculateLocalInertia(mass, localInertia);
 
 	bodies[0] = createRigidBody(mass, sphereTransform, sphereShape);
-    bodies[0]->setLinearVelocity(btVector3(0, 5, 0));
 	names[0] = "init_velocity_sphere";
 
     bodies[0]->setLinearVelocity(velocity);
