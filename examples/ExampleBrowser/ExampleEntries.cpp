@@ -84,6 +84,11 @@
 #include "../ReducedDeformableDemo/ReducedBenchmark.h"
 #include "../InverseKinematics/InverseKinematicsExample.h"
 
+#include "../APG2024/Bernoulli.hpp"
+#include "../APG2024/Billiards.hpp"
+#include "../APG2024/Cradle.hpp"
+
+
 #ifdef B3_ENABLE_TINY_AUDIO
 #include "../TinyAudio/TinyAudioExample.h"
 #endif  //B3_ENABLE_TINY_AUDIO
@@ -136,6 +141,12 @@ struct ExampleEntry
 static ExampleEntry gDefaultExamples[] =
 	{
 		ExampleEntry(0, "API"),
+
+        ExampleEntry(1, "Bernoulli", "PG2024 Bernoulli", BernoulliCreateFunc),
+
+		ExampleEntry(1, "Billiards", "PG2024 Billiards", BilliardsCreateFunc),
+
+		ExampleEntry(1, "Cradle", "PG2024 Cradle", CradleCreateFunc),
 
 		ExampleEntry(1, "Basic Example", "Create some rigid bodies using box collision shapes. This is a good example to familiarize with the basic initialization of Bullet. The Basic Example can also be compiled without graphical user interface, as a console application. Press W for wireframe, A to show AABBs, I to suspend/restart physics simulation. Press D to toggle auto-deactivation of the simulation. ", BasicExampleCreateFunc),
 

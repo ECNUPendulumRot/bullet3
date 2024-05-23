@@ -426,6 +426,18 @@ SET(BulletExampleBrowser_SRCS
 	../ThirdPartyLibs/tinyxml2/tinyxml2.cpp
 	InProcessExampleBrowser.cpp
 	${BULLET_PHYSICS_SOURCE_DIR}/build3/bullet.rc
+
+	../APG2024/json.hpp
+	../APG2024/JsonGenerator.hpp
+	../APG2024/JsonGenerator.cpp
+	../APG2024/FileGenerator.hpp
+	../APG2024/FileGenerator.cpp
+	../APG2024/Bernoulli.hpp
+	../APG2024/Bernoulli.cpp
+	../APG2024/Billiards.hpp
+	../APG2024/Billiards.cpp
+	../APG2024/Cradle.hpp
+	../APG2024/Cradle.cpp
 )
 
 
