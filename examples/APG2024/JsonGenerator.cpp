@@ -16,7 +16,7 @@ void JsonGenerator::addObjects(btRigidBody** bodies, std::string* names, int bod
 	for (int i = 0; i < bodyCount; i++) {
 		json objJson;
 
-		objJson["name"] = names[i];
+		objJson["name"] = names[i] + "_bullet3";
 		btRigidBody* body = bodies[i];
 
 		btCollisionShape* shape = body->getCollisionShape();
@@ -88,7 +88,7 @@ void JsonGenerator::saveToFile()
 
 	int fileCount = getFileCount();
 
-	std::filesystem::path fileName = dir / (jsonFileNamePrefix + "_" + std::to_string(fileCount) + ".json");
+	std::filesystem::path fileName = dir / (jsonFileNamePrefix + ".json");
 
 	std::ofstream file(fileName);
 
