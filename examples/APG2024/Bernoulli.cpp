@@ -18,7 +18,7 @@ struct BernoulliExample : public CommonRigidBodyBase {
     // modify y-axis velocity
     btVector3 velocity{0, 5, 0};
 
-	int sphereCount = 4;
+	int sphereCount = 8;
 
 	FileGenerator* fileGenerator;
 	JsonGenerator* jsonGenerator;
