@@ -1,6 +1,7 @@
 
 
 #include "FileGenerator.hpp"
+#include <string>
 
 
 std::filesystem::path FileGenerator::dir = "BodyInfo";

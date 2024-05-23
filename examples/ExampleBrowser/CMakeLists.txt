@@ -440,7 +440,7 @@ SET(BulletExampleBrowser_SRCS
 	../APG2024/Cradle.cpp
 )
 
-
+set(CMAKE_CXX_STANDARD 17)
 
 ADD_EXECUTABLE(App_ExampleBrowser
 		main.cpp
