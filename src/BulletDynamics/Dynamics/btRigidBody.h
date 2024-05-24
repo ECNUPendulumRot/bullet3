@@ -518,6 +518,8 @@ public:
 		if (getActivationState() == DISABLE_DEACTIVATION)
 			return false;
 
+        gDisableDeactivation = true;
+
 		//disable deactivation
 		if (gDisableDeactivation || (gDeactivationTime == btScalar(0.)))
 			return false;
