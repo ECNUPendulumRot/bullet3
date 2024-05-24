@@ -22,7 +22,7 @@ struct BilliardsExample : public CommonRigidBodyBase {
 
 	int sphereCount;
 
-	int layer = 3;
+	int layer = 4;
 
 	FileGenerator* fileGenerator;
 
